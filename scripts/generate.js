@@ -1,11 +1,18 @@
 import { topics } from './data.js';
-import { topicSelector } from './index.js';
 
-console.log(topicSelector);
-console.log(topics, typeof topics);
-console.log(topicSelector.innerHTML);
+export const topicSelector = document.querySelector('.js-topic-selector');
 
-Array.from(topics).forEach( topic => {
-    console.log(topic);
+let htmlContainer;
+
+// The code below generates the html for the available topics. 
+
+Object.values(topics).forEach( topic => {
+    htmlContainer += `
+        <option value="${topic}">${topic}</option>
+    `
 })
+
+topicSelector.innerHTML = htmlContainer;
+
+
 

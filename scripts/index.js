@@ -1,17 +1,19 @@
-export const topicSelector = document.querySelector('.js-topic-selector');
+import { topics } from './data.js';
+import { topicSelector } from './generate.js';
+
+
 const generateBtn = document.querySelector('.generate-btn');
 const displayQuestion = document.querySelector('.display-question');
 const gradeSelector = document.querySelector('.grade-level');
 const grades = Array.from(gradeSelector.options).map(option => option.value);
 const difficultySelector = document.querySelector('.difficulty-level');
 const difficulty = Array.from(difficultySelector.options);
-const topics = Array.from(topicSelector.options).map(opt => opt.value);
 
 let selectedGradeValue = '';
 let selectedTopicValue = '';
+let selectedDifficultyValue = '';
 
-
-
+console.log(grades, typeof difficulty);
 
 
 grades.forEach( grade => {
@@ -21,7 +23,9 @@ grades.forEach( grade => {
     } )
 })
 
-topics.forEach(topic => {
+// This code perhaps needs a rewrite since it gets logged 11 times every time a click gets detected, making it not very efficient. 
+
+Object.values(topics).forEach(topic => {
     topicSelector.addEventListener("change", event=> {
         selectedTopicValue = event.target.value;
         console.log(selectedTopicValue);
@@ -29,8 +33,14 @@ topics.forEach(topic => {
     
 })
 
+Object.values(difficulty).forEach( val => {
+    console.log(val);
+    difficultySelector.addEventListener("change", event => {
+        selectedDifficultyValue = event.target.value;
+        console.log(selectedDifficultyValue);
+    })
+})
 
-console.log(selectedTopicValue);
 
 
 
@@ -43,7 +53,7 @@ async function updateDisplay(){
 }
 
 generateBtn.addEventListener('click', () => {
-    if(selectedTopicValue === "" || selectedGradeValue ===''){
+    if(selectedTopicValue === "" || selectedGradeValue ==='' || selectedDifficultyValue){
         window.alert("Input a valid grade and/or topic. ")
     }
     sendRequest();    
@@ -51,4 +61,3 @@ generateBtn.addEventListener('click', () => {
     
 })
 
-console.log(selectedTopicValue);
