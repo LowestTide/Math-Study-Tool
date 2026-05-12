@@ -1,16 +1,13 @@
-
-// A storage variable used to contain all the available topics for studying. 
-
 export const topics = {
-    placeholder: '',
-    algebra: 'algebra',
-    trigonometry: 'trigonometry',
-    functions: 'functions',
-    geometry: 'geometry',
-    factoring: 'factoring',
-    probability: 'probability',
-    statistics: 'statistics',
-    sequences: 'sequences', 
-    series: 'series',
-    limits: 'limits',        
+    algebra: 'Algebra',
+    trigonometry: 'Trigonometry',
+    functions: 'Functions',
+    geometry: 'Geometry',
+    factoring: 'Factoring',
+    probability: 'Probability',
+    statistics: 'Statistics',
+    sequences: 'Sequences',
+    series: 'Series',
+    limits: 'Limits',
+    calculus: 'Calculus'
 }

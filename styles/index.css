@@ -1,0 +1,372 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(180deg, #070713, #121420, #2f3e78);
+    color: white;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-size: 1.8rem;
+    transition: color 0.25s ease-in-out;
+}
+
+h1:hover {
+    color: rgba(255, 255, 255, 0.409);
+    cursor: pointer;
+}
+
+nav {
+    background: linear-gradient(180deg, rgb(20, 22, 54), rgb(21, 24, 82), rgb(98, 71, 219));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+    
+}
+
+nav p:hover {
+    font-weight: 500;
+    transform: scale(1.1);
+    transition: transform 0.45s ease-in-out;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    top: 15px;
+    gap: 20px;
+    padding: 10px;
+}
+
+.user-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+select {
+    background-color: #9290C3;
+    border: none;
+    border-radius: 20px;
+    height: 35px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+    padding: 0 10px;
+    /* Prevents iOS from adding its own styling */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select:hover {
+    background-color: hsl(242, 30%, 46%);
+}
+
+input {
+    background-color: #9290C3;
+    border: none;
+    line-height: 25px;
+    border-radius: 25px;
+    margin-top: 5px;
+    padding: 4px 12px;
+    color: white;
+    width: 180px;
+    /* Prevents iOS zoom on focus (font must be 16px+) */
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.generate-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    
+}
+
+.generate-btn {
+    cursor: pointer;
+    background-color: #535C91;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 14px 36px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    /* Makes it easy to tap on mobile */
+    min-height: 48px;
+    min-width: 140px;
+}
+
+.generate-btn:hover {
+    background-color: hsl(231, 27%, 55%);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px 1px white;
+}
+
+.generate-btn:active {
+    background-color: hsl(231, 27%, 35%);
+    transform: scale(0.985);
+}
+
+.generate-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.generated-question-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 80px;
+}
+
+.generated-question-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(360deg, rgb(20, 22, 54), rgb(21, 24, 82), rgb(98, 71, 219));
+    box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.3);
+    padding: 50px 40px;
+    min-width: 300px;
+    max-width: 700px;
+    width: 90%;
+    border-radius: 35px;
+    gap: 30px;
+    transition: box-shadow 0.55s ease-in-out;
+}
+.generated-question-container:hover{
+    box-shadow: 0px 0px 15px 1px rgb(125, 163, 239);
+}
+
+
+.display-question {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.question-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.question-btn {
+    background-color: #9290C3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    width: 145px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    /* Easy tap target */
+    min-height: 48px;
+}
+
+.question-btn:hover {
+    background-color: hsl(242, 30%, 46%);
+    box-shadow: 0px 0px 15px 2px white;
+    
+    transform: scale(1.05);
+}
+
+.question-btn:active {
+    transform: scale(0.97);
+}
+
+.question-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.display-hint-answer {
+    text-align: center;
+    max-width: 580px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.97rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 12px 30px;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(180deg, rgb(20, 22, 54), rgb(21, 24, 82), rgb(98, 71, 219));
+    transition: background-color 0.35s ease-in-out;
+    font-size: 0.85rem;
+    text-align: center;
+    
+}
+
+
+
+/* ─── Tablet (max 768px) ────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 20px 15px;
+    }
+
+    nav {
+        font-size: 1rem;
+        padding: 16px;
+    }
+
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        top: 10px;
+        padding: 16px;
+    }
+
+    /* Each selector group takes full width and centers nicely */
+    .grade-level-container,
+    .topic-container,
+    .difficulty-container,
+    .example-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    select {
+        width: 80%;
+        max-width: 320px;
+        height: 44px;
+        font-size: 1rem;
+        padding: 0 16px;
+    }
+
+    input {
+        width: 80%;
+        max-width: 320px;
+        height: 44px;
+    }
+
+    .generate-btn {
+        width: 80%;
+        max-width: 320px;
+        font-size: 1.05rem;
+    }
+
+    .generated-question-container {
+        padding: 36px 24px;
+        width: 92%;
+        border-radius: 24px;
+        gap: 24px;
+    }
+
+    .display-question {
+        font-size: 1rem;
+    }
+
+    .question-btn {
+        width: 130px;
+        font-size: 0.9rem;
+    }
+
+    .display-hint-answer {
+        font-size: 0.93rem;
+    }
+
+    footer {
+        font-size: 0.75rem;
+        padding: 10px 16px;
+    }
+}
+
+
+/* ─── Mobile (max 480px) ────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.3rem;
+        padding: 16px 12px;
+    }
+
+    nav {
+        font-size: 0.9rem;
+        padding: 14px 12px;
+    }
+
+    select {
+        width: 90%;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    .generate-btn {
+        width: 90%;
+    }
+
+    .generated-question-container {
+        width: 95%;
+        padding: 28px 18px;
+        border-radius: 20px;
+    }
+
+    .display-question {
+        font-size: 0.97rem;
+        line-height: 1.6;
+    }
+
+    /* Stack the 3 buttons vertically on small phones */
+    .question-button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .question-btn {
+        width: 80%;
+        max-width: 280px;
+    }
+
+    .display-hint-answer {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+    }
+}

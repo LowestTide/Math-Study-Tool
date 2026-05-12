@@ -4,98 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Study Tool</title>
+
+    <!-- MathJax config must come BEFORE the MathJax script -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)'], ['$', '$']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea']
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
 
     <h1>Math Study Tool</h1>
-
-    <p>Designed to help you practice and improve your math skills.</p>
+    <nav>
+        <p>Designed to help you practice and improve your math skills.</p>
+    </nav>
 
     <div class="info-container">
 
         <div class="grade-level-container">
-
-            <p>What is your grade level?</p>
+            <p class="user-input">Grade</p>
             <select class="grade-level">
-                <option value=""></option>
+                <option value="">Select a grade...</option>
                 <option value="9">9th Grade</option>
                 <option value="10">10th Grade</option>
                 <option value="11">11th Grade</option>
                 <option value="12">12th Grade</option>
             </select>
-            <!--
-                algebra, functions, basic calculus, statistics,
-                geometry, trigonometry, factoring, probability,
-                comibnatorics, sequences, series, limits, exponents, problem-solving  etc. 
-            -->
-
         </div>
 
         <div class="topic-container">
-
-            <label for="topics">What topic would you like to study?</label>
-            <br>
-            <select required class="topic-selector js-topic-selector"id="topics" style="width: 150px;">
-                <!-- <option value=""></option>
-                <option value="algebra">Algebra</option>
-                <option value="functions">Functions</option>
-                <option value="geometry">Geometry</option>
-                <option value="factoring">Factoring</option>
-                <option value="trigonometry">Trigonometry</option>
-                <option value="probability">Probability</option>
-                <option value="statistics">Statistics</option>
-                <option value="sequences">Sequences</option>
-                <option value="series">Series</option>
-                <option value="limits">Limits</option> -->
-            </select>
-
+            <label for="topics" class="user-input">Topic</label>
+            <select required class="topic-selector js-topic-selector" id="topics" style="width:150px;"></select>
         </div>
 
         <div class="difficulty-container">
-
-            <p>What difficulty level would you like?</p>
+            <p class="user-input">Difficulty</p>
             <select required class="difficulty-level">
-s
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
-
+                <option value="extreme">Extreme</option>
+                <option value="International Mathematical Olympiad">International Mathematical Olympiad</option>
             </select>
-
         </div>
 
         <div class="example-container">
-
-            <p>Any examples of the topic you want to study? (Optional)</p>
-            <input type="text" class="example">
-
-        </div>
-
-        <button class="generate-btn">
-            Generate
-        </button>
-        
-    </div>
-
-    <div class="generated-question-container">
-
-        <div class="generated-question">
-
-            <p class="display-question">*Question will appear here*</p>
-
-            <button class="hint-btn">Hint</button>
-
-            <button class="show-answer-btn">Show Answer</button>
-
-            <button class="randomize-btn">Randomize</button>
-
+            <p>Example (Optional)</p>
+            <input type="text" class="example" placeholder="e.g. solve for x in 2x + 3 = 7">
         </div>
 
     </div>
+
+    <div class="generate-btn-container">
+        <button class="generate-btn">Generate</button>
+    </div>
+
+    <div class="generated-question-wrapper">
+        <div class="generated-question-container">
+
+            <p class="display-question">Generate a question to start.</p>
+
+            <div class="question-button-container">
+                <button class="hint-btn question-btn">Hint</button>
+                <button class="show-answer-btn question-btn">Show Answer</button>
+                <button class="randomize-btn question-btn">Randomize</button>
+            </div>
+
+            <div class="display-hint-answer">Answer/Hint will appear here.</div>
+
+        </div>
+    </div>
+
+    <footer>
+        Made by Abir and Pranav from Balfour Collegiate in their senior years (2026).
+    </footer>
+
     <script type="module" src="scripts/data.js"></script>
     <script type="module" src="scripts/generate.js"></script>
-    <script type="module" src="scripts/index.js"></script> 
-    
-    
+    <script type="module" src="scripts/index.js"></script>
+
 </body>
 </html>

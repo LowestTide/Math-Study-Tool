@@ -2,17 +2,10 @@ import { topics } from './data.js';
 
 export const topicSelector = document.querySelector('.js-topic-selector');
 
-let htmlContainer;
+let htmlContainer = '<option value="">Select a topic...</option>';
 
-// The code below generates the html for the available topics. 
-
-Object.values(topics).forEach( topic => {
-    htmlContainer += `
-        <option value="${topic}">${topic}</option>
-    `
-})
+Object.entries(topics).forEach(([key, label]) => {
+    htmlContainer += `<option value="${label}">${label}</option>`;
+});
 
 topicSelector.innerHTML = htmlContainer;
-
-
-
