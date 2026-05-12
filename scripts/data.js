@@ -9,5 +9,8 @@ export const topics = {
     sequences: 'Sequences',
     series: 'Series',
     limits: 'Limits',
-    calculus: 'Calculus'
+    differential_calculus: 'Differential Calculus',
+    integral_calculus: 'Integral Calculus',
+    matrics: 'Matrices',
+    optimization: 'optimization (calculus)'
 }
